@@ -14,9 +14,9 @@ resource "aws_lambda_function" "stop_scheduler" {
   timeout          = 300
   source_code_hash = data.archive_file.terminate_spot.output_base64sha256
   
-  tracing_config {
-    mode = "Active"
-  }
+  # tracing_config {
+  #   mode = "Active"
+  # }
 }
 
 resource "aws_cloudwatch_event_rule" "every_five_minutes" {
