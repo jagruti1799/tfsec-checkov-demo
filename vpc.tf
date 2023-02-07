@@ -7,17 +7,16 @@ resource "aws_vpc" "main" {
   }
 }
 
-# resource "aws_flow_log" "example" {
-#   traffic_type = "ALL"
-#   vpc_id       = aws_vpc.main.id
-# }
+resource "aws_flow_log" "example" {
+  traffic_type = "ALL"
+  vpc_id       = aws_vpc.main.id
+}
 
 resource "aws_subnet" "public_subnetA" {
   vpc_id                  = aws_vpc.main.id
   map_public_ip_on_launch = false
   cidr_block              = "10.0.1.0/24"
   availability_zone       = "us-west-2a"
-  #availability_zone  = "ap-south-1a"
   tags = {
     Name = "public_subnetA"
   }
@@ -28,7 +27,6 @@ resource "aws_subnet" "public_subnetB" {
   map_public_ip_on_launch = false
   cidr_block              = "10.0.2.0/24"
   availability_zone       = "us-west-2b"
-  #availability_zone  = "ap-south-1b"
   tags = {
     Name = "public_subnetB"
   }
