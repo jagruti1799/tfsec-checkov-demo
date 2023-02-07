@@ -1,8 +1,8 @@
 
 data "archive_file" "terminate_spot" {
   type        = "zip"
-  source_file = "./boto3tutorial.py"
-  output_path = "boto3tutorial.zip"
+  source_file = "./Terminatespot.py"
+  output_path = "Terminatespot.zip"
 }
 
 resource "aws_lambda_function" "stop_scheduler" {
@@ -14,9 +14,9 @@ resource "aws_lambda_function" "stop_scheduler" {
   timeout          = 300
   source_code_hash = data.archive_file.terminate_spot.output_base64sha256
   
-  tracing_config {
-    mode = "Active"
-  }
+  # tracing_config {
+  #   mode = "Active"
+  # }
 }
 
 resource "aws_cloudwatch_event_rule" "every_five_minutes" {

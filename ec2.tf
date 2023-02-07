@@ -17,9 +17,9 @@ resource "aws_instance" "first" {
   associate_public_ip_address = true
   instance_initiated_shutdown_behavior = "terminate"
 
-   metadata_options {
-     http_tokens = "required"
-     }  
+  #  metadata_options {
+  #    http_tokens = "required"
+  #    }  
 
 
   root_block_device {
