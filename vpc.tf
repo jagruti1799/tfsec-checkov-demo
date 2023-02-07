@@ -7,10 +7,10 @@ resource "aws_vpc" "main" {
   }
 }
 
-# resource "aws_flow_log" "example" {
-#   traffic_type = "ALL"
-#   vpc_id       = aws_vpc.main.id
-# }
+resource "aws_flow_log" "example" {
+  traffic_type = "ALL"
+  vpc_id       = aws_vpc.main.id
+}
 
 resource "aws_subnet" "public_subnetA" {
   vpc_id                  = aws_vpc.main.id
